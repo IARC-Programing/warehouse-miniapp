@@ -7,8 +7,8 @@ import MovePallet from './views/MovePallet';
 import PalletView from './views/PalletView';
 import WarehouseRowView from './views/WarehouseRowView';
 
-function Layout(){
-  return <div></div>
+function Layout({children}){
+  return <div>{children}</div>
 }
 
 function App() {
@@ -17,12 +17,12 @@ function App() {
       <Router>
 
       <Routes>
-        <Route path='/' element={Layout} >
-          <Route index element={Home} />
-          <Route path='insert' element={InsertPallets} />
-          <Route path='move' element={MovePallet} />
-          <Route path='view' element={PalletView} />
-          <Route path='row-view' element={WarehouseRowView} />
+        <Route path='/' element={<Layout/>} >
+          <Route index element={<Home/>} />
+          <Route path='insert' element={<InsertPallets/>} />
+          <Route path='move' element={<MovePallet/>} />
+          <Route path='view' element={<PalletView/>} />
+          <Route path='row-view' element={<WarehouseRowView/>} />
           </Route>
       </Routes>
       </Router>
