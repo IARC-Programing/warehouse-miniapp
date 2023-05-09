@@ -3,6 +3,7 @@ import { Card, CardContent } from "@mui/joy";
 
 import Navbar from "./Navbar";
 import Header from "./Header";
+import BottomNav from "./BottomNav";
 
 function Layout({ title, children }) {
   return (
@@ -18,6 +19,7 @@ function Layout({ title, children }) {
           </Card>
         </div>
       </div>
+      <BottomNav />
     </div>
   );
 }

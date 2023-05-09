@@ -11,7 +11,7 @@ function Auth() {
   const handleLogin = (data) => {
     userLogin(data)
       .then(() => {
-        alert("ลงชื่อเข้าใช้สำเร็จ");
+        window.location.reload();
       })
       .catch((error) => {
         alert(error);

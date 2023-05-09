@@ -1,12 +1,19 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Avatar } from "@mui/joy";
+import { Avatar, Button } from "@mui/joy";
 import _ from "lodash";
 
 import { PrivateRoute } from "../context/PrivateRoute";
 
 function Navbar() {
   const { me } = useContext(PrivateRoute);
+
+  const handleLogout = () => {
+    window.localStorage.removeItem("warehouse_remember");
+    window.localStorage.removeItem("token");
+    window.location.reload();
+  };
+
   return (
     <div>
       <nav className='bg-white border-gray-200 dark:bg-gray-900'>
@@ -29,6 +36,11 @@ function Navbar() {
               </Avatar>
               <div className='self-center'>
                 {me?.userData?.firstname} {me?.userData?.lastname}
+              </div>
+              <div className='self-center'>
+                <Button size='sm' color='neutral' onClick={handleLogout}>
+                  Logout
+                </Button>
               </div>
             </div>
           )}
