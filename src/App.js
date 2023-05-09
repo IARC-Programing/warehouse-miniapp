@@ -1,31 +1,30 @@
-import { Route, Router, Routes } from 'react-router'
+import { Route, Routes } from "react-router";
+import { BrowserRouter } from "react-router-dom";
 
 // Views
-import Home from './views/Home';
-import InsertPallets from './views/InsertPallets';
-import MovePallet from './views/MovePallet';
-import PalletView from './views/PalletView';
-import WarehouseRowView from './views/WarehouseRowView';
+import Home from "./views/Home";
+import InsertPallets from "./views/InsertPallets";
+import MovePallet from "./views/MovePallet";
+import PalletView from "./views/PalletView";
+import WarehouseRowView from "./views/WarehouseRowView";
 
-function Layout({children}){
-  return <div>{children}</div>
-}
+//Context
+import PrivateRouteProvider from "./context/PrivateRoute";
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-
-      <Routes>
-        <Route path='/' element={<Layout/>} >
-          <Route index element={<Home/>} />
-          <Route path='insert' element={<InsertPallets/>} />
-          <Route path='move' element={<MovePallet/>} />
-          <Route path='view' element={<PalletView/>} />
-          <Route path='row-view' element={<WarehouseRowView/>} />
-          </Route>
-      </Routes>
-      </Router>
+    <div className='App'>
+      <BrowserRouter basename='/'>
+        <PrivateRouteProvider>
+          <Routes>
+            <Route path='/' index element={<Home />} />
+            <Route path='insert' element={<InsertPallets />} />
+            <Route path='move' element={<MovePallet />} />
+            <Route path='view' element={<PalletView />} />
+            <Route path='row-view' element={<WarehouseRowView />} />
+          </Routes>
+        </PrivateRouteProvider>
+      </BrowserRouter>
     </div>
   );
 }

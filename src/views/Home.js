@@ -1,15 +1,7 @@
-import React from 'react'
-import { Button,Space } from 'antd-mobile'
+import React from "react";
 
 function Home() {
-  return (
-    <div>
-        <Space>
-            <Button>เพิ่ม Pallet ลงในคลัง</Button>
-            <Button>ย้าย Pallet</Button>
-        </Space>
-    </div>
-  )
+  return <div></div>;
 }
 
-export default Home
+export default Home;
