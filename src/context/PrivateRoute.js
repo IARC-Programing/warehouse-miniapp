@@ -17,7 +17,6 @@ function PrivateRouteProvider({ children }) {
       getUser(userRemember)
         .then((data) => setUserState(data))
         .catch((err) => {
-          alert(err);
           setUserState();
         });
     }
