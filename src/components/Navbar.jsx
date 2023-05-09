@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Avatar } from "@mui/joy";
+import _ from "lodash";
+
+import { PrivateRoute } from "../context/PrivateRoute";
 
 function Navbar() {
+  const { me } = useContext(PrivateRoute);
   return (
     <div>
       <nav className='bg-white border-gray-200 dark:bg-gray-900'>
@@ -16,6 +21,17 @@ function Navbar() {
               11 Wongjorn
             </span>
           </Link>
+          {me && (
+            <div className='flex gap-2'>
+              <Avatar>
+                {_.first(me?.userData?.firstname)}
+                {_.first(me?.userData?.lastname)}
+              </Avatar>
+              <div className='self-center'>
+                {me?.userData?.firstname} {me?.userData?.lastname}
+              </div>
+            </div>
+          )}
         </div>
       </nav>
     </div>
