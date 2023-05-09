@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Router, Routes } from 'react-router'
+
+// Views
+import Home from './views/Home';
+import InsertPallets from './views/InsertPallets';
+import MovePallet from './views/MovePallet';
+import PalletView from './views/PalletView';
+import WarehouseRowView from './views/WarehouseRowView';
+
+function Layout(){
+  return <div></div>
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+
+      <Routes>
+        <Route path='/' element={Layout} >
+          <Route index element={Home} />
+          <Route path='insert' element={InsertPallets} />
+          <Route path='move' element={MovePallet} />
+          <Route path='view' element={PalletView} />
+          <Route path='row-view' element={WarehouseRowView} />
+          </Route>
+      </Routes>
+      </Router>
     </div>
   );
 }
